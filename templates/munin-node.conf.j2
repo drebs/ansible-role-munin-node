@@ -61,3 +61,13 @@ host {{ munin_node_bind_host }}
 
 # And which port
 port {{ munin_node_bind_port }}
+
+{% if munin_tls %}
+# TLS setup: http://guide.munin-monitoring.org/en/latest/advanced/tls-setup.html
+tls paranoid
+tls_verify_certificate yes
+tls_private_key {{ munin_tls_private_key }}
+tls_certificate {{ munin_tls_certificate }}
+tls_ca_certificate {{ munin_tls_ca_certificate }}
+tls_verify_depth {{ munin_tls_verify_depth }}
+{% endif %}

@@ -1,4 +1,9 @@
 ---
+munin_node_packages:
+  - ssl-cert
+  - munin-node
+  - libnet-ssleay-perl
+
 munin_node_bind_host: "*"
 munin_node_bind_port: "4949"
 
@@ -29,3 +34,10 @@ munin_node_config: {
 #   "env.name": "bash"
 # }
 }
+
+# TLS configuration.
+munin_tls: False
+munin_tls_private_key: /etc/ssl/private/ssl-cert-snakeoil.key
+munin_tls_certificate: /etc/ssl/certs/ssl-cert-snakeoil.pem
+munin_tls_ca_certificate: /etc/ssl/certs/ssl-cert-snakeoil.pem
+munin_tls_verify_depth: 5
